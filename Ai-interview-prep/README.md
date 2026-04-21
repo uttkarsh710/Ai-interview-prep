@@ -1,80 +1,39 @@
 # AI Interview Prep
 
-AI powered interview preparation platform with resume analysis and mock interview practice.
-
----
+AI powered interview preparation platform.
 
 ## Features
 
-- User Signup & Login
+- User Login & Signup
 - AI Interview Questions
-- Voice Interview Practice
-- Resume Upload & Analysis
+- Voice Interview
+- Resume Upload
 - Admin Dashboard
-- Login History Tracking
-
----
+- Login History
 
 ## Tech Stack
 
 Frontend:
-- React
-- CSS
+React, CSS
 
 Backend:
-- Node.js
-- Express.js
+Node.js, Express.js
 
 Database:
-- MongoDB
+MongoDB
 
----
-
-## Installation
-
-### 1. Clone repository
-
-git clone https://github.com/uttkarsh710/Ai-interview-prep.git
-
-
-### 2. Install dependencies
-
-Client:
-
-cd client
-npm install
+## Run project
 
 Server:
 
 cd server
-npm install
-
-
-### 3. Create .env file inside server folder
-
-MONGO_URI=mongodb://127.0.0.1:27017/ai-interview
-OPENAI_KEY=your_openai_key
-
-
-### 4. Run project
-
-Server:
-
 node index.js
 
 Client:
 
+cd client
 npm start
-
-
----
 
 ## Author
 
 Uttkarsh Tiwari
-
----
-
-## Project Status
-
-Working project with authentication, admin dashboard and AI interview features.
