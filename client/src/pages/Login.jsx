@@ -29,7 +29,7 @@ function Login() {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://ai-interview-prep-drlz.onrender.com/api/auth/login",
         { email, password }
       );
 
@@ -64,7 +64,7 @@ function Login() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/password/send-otp",
+        "https://ai-interview-prep-drlz.onrender.com/api/password/send-otp",
         { email }
       );
       alert("OTP sent to your email");

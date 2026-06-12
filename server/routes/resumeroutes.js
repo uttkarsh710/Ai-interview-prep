@@ -37,24 +37,24 @@ router.post("/", upload.single("resume"), async (req, res) => {
       });
     }
 
-    /* --- pre-checks before sending to AI --- */
+    
 
     // word count check
     const wordCount = resumeText.trim().split(/\s+/).length;
 
-    // contact info check
+    
     const hasEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(resumeText);
     const hasPhone = /(\+?\d[\d\s\-().]{7,}\d)/.test(resumeText);
     const hasLinkedIn = /linkedin\.com\/in\//i.test(resumeText);
 
-    // section detection (case-insensitive heading match)
+   
     const hasEducation = /\beducation\b/i.test(resumeText);
     const hasExperience = /\b(experience|work history|employment)\b/i.test(resumeText);
     const hasProjects = /\b(projects?|portfolio)\b/i.test(resumeText);
     const hasSkills = /\b(skills?|technical skills?|core competencies)\b/i.test(resumeText);
     const hasSummary = /\b(summary|objective|profile|about)\b/i.test(resumeText);
 
-    // build context notes for the AI prompt
+   
     const preCheckNotes = `
 Pre-Analysis Data (use this for scoring — do NOT ignore):
 - Word Count: ${wordCount} words ${wordCount < 200 ? "(Very short — penalise heavily)" : wordCount < 400 ? "(Below average length)" : "(Acceptable length)"}
@@ -68,7 +68,6 @@ Pre-Analysis Data (use this for scoring — do NOT ignore):
 - Summary/Objective section: ${hasSummary ? "Found" : "Missing — minor deduction"}
 `;
 
-    /* send to AI */
     const aiResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -153,7 +152,7 @@ ${resumeText}
     let resultText =
       aiData?.choices?.[0]?.message?.content || "Error analyzing resume";
 
-    /* strip any leftover markdown symbols */
+    
     resultText = resultText
       .replace(/#+\s?/g, "")
       .replace(/\*\*/g, "")
@@ -162,7 +161,7 @@ ${resumeText}
       .replace(/__/g, "")
       .replace(/>/g, "");
 
-    /* delete uploaded file */
+    
     fs.unlinkSync(filePath);
 
     res.json({ result: resultText });

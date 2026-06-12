@@ -24,7 +24,7 @@ const getUsers = async()=>{
 try{
 
 const res = await axios.get(
-"http://localhost:5000/api/auth/users?email=admin@gmail.com"
+"https://ai-interview-prep-drlz.onrender.com/api/auth/users?email=admin@gmail.com"
 );
 
 setUsers(res.data);
@@ -39,13 +39,12 @@ console.log(err);
 };
 
 
-/* GET LOGIN HISTORY */
 const getHistory = async()=>{
 
 try{
 
 const res = await axios.get(
-"http://localhost:5000/api/auth/login-history?email=admin@gmail.com"
+"https://ai-interview-prep-drlz.onrender.com/api/auth/login-history?email=admin@gmail.com"
 );
 
 setHistory(res.data);
@@ -116,9 +115,6 @@ onClick={()=>navigate("/home")}
 
 </div>
 
-
-
-{/* LOGIN HISTORY */}
 
 <div className="adminCard">
 

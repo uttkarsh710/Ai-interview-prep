@@ -3,9 +3,6 @@ import fetch from "node-fetch";
 
 const router = express.Router();
 
-/* ───────────────────────────────────────────
-   CHAT / QUESTION ANSWERING  (existing)
-─────────────────────────────────────────── */
 router.post("/", async (req, res) => {
 
   try {
@@ -46,11 +43,7 @@ router.post("/", async (req, res) => {
 
 });
 
-/* ───────────────────────────────────────────
-   ANSWER EVALUATION  (new)
-   POST /api/interview/evaluate
-   Body: { question, userAnswer }
-─────────────────────────────────────────── */
+
 router.post("/evaluate", async (req, res) => {
 
   try {

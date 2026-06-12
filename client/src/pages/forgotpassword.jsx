@@ -11,7 +11,7 @@ const reset = async()=>{
 
 await axios.post(
 
-"http://localhost:5000/api/auth/forgot",
+"https://ai-interview-prep-drlz.onrender.com/api/auth/forgot",
 
 { email }
 

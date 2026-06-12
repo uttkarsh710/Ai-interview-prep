@@ -33,7 +33,7 @@ export default function Interview() {
 
     try {
 
-      const res = await fetch("http://localhost:5000/api/interview", {
+      const res = await fetch("https://ai-interview-prep-drlz.onrender.com/api/interview", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question })

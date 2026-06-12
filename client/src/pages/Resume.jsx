@@ -58,7 +58,7 @@ function Resume() {
     formData.append("jobRole", jobRole.trim());
 
     try {
-      const res = await fetch("http://localhost:5000/api/resume", {
+      const res = await fetch("https://ai-interview-prep-drlz.onrender.com/api/resume", {
         method: "POST",
         body: formData,
       });

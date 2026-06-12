@@ -10,8 +10,6 @@ export default function VoiceInterview() {
 
   const recognitionRef = useRef(null);
 
-  /* start listening */
-
   const startListening = () => {
 
     if (!("webkitSpeechRecognition" in window)) {
@@ -38,7 +36,7 @@ export default function VoiceInterview() {
       setStatus("Processing...");
 
       /* call backend */
-const res = await fetch("http://localhost:5000/api/interview", {
+const res = await fetch("https://ai-interview-prep-drlz.onrender.com/api/interview", {
       
         method: "POST",
         headers: {
@@ -53,8 +51,6 @@ const res = await fetch("http://localhost:5000/api/interview", {
 
       let aiAnswer = data.answer || "No answer";
 
-      /* remove #, **, markdown symbols */
-
       aiAnswer = aiAnswer
         .replace(/#+\s?/g, "")
         .replace(/\*\*/g, "")
@@ -65,8 +61,7 @@ const res = await fetch("http://localhost:5000/api/interview", {
 
       setAnswer(aiAnswer);
 
-      /* speak answer */
-
+    
       speakAnswer(aiAnswer);
 
       setStatus("Stopped");
@@ -88,8 +83,6 @@ const res = await fetch("http://localhost:5000/api/interview", {
   };
 
 
-  /* stop listening + stop voice */
-
   const stopListening = () => {
 
     if (recognitionRef.current) {
@@ -102,8 +95,6 @@ const res = await fetch("http://localhost:5000/api/interview", {
     setListening(false);
   };
 
-
-  /* text to speech */
 
   const speakAnswer = (text) => {
 
