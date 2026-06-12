@@ -1,13 +1,156 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #0f172a;
+  color: white;
+  overflow-x: hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ── Dashboard Layout ── */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: #020617;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar p {
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.content {
+  padding: 30px;
+  flex: 1;
+  width: 0; /* prevents overflow */
+}
+
+/* ── Auth Box (Login / Signup) ── */
+.authBox {
+  width: 100%;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 20px;
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+/* ── Inputs & Buttons ── */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #38bdf8;
+  border: none;
+  cursor: pointer;
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Cards / Result Boxes ── */
+.card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ────────────────────────────
+   TABLET  (max 768px)
+──────────────────────────── */
+@media (max-width: 768px) {
+
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .sidebar p {
+    margin: 0;
+    padding: 6px 12px;
+    background: #1e293b;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 16px;
+    width: 100%;
+  }
+
+  .authBox {
+    margin: 30px auto;
+    padding: 20px 16px;
+  }
+
+}
+
+/* ────────────────────────────
+   MOBILE  (max 480px)
+──────────────────────────── */
+@media (max-width: 480px) {
+
+  .authBox {
+    margin: 20px 16px;
+    padding: 20px 14px;
+  }
+
+  .content {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
 }
